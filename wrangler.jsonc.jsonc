@@ -1,0 +1,41 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "nexus-leads-mcp",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-23",
+  "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "ALLOWED_GITHUB_USERS": "luizfelipeehsilva-afk",
+    "NEXUS_APP_URL": "https://nexus-leads-ai.luizfelipeehsilva.workers.dev"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "nexus-leads-db",
+      "database_id": "8485af7e-d982-4fb7-a684-e9626769eb7c"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "OAUTH_KV",
+      "id": "789f0cb62d474039b1e05de70bf278df"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "NEXUS_MCP",
+        "class_name": "NexusMCP"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["NexusMCP"]
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}

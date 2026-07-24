@@ -1,0 +1,25 @@
+{
+  "name": "nexus-leads-mcp-bridge",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && wrangler deploy --dry-run",
+    "validate": "node scripts/validate.mjs"
+  },
+  "dependencies": {
+    "@cloudflare/workers-oauth-provider": "^0.8.1",
+    "@modelcontextprotocol/sdk": "^1.26.0",
+    "agents": "^0.17.1",
+    "hono": "^4.12.27",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260710.1",
+    "typescript": "^6.0.3",
+    "wrangler": "^4.111.0"
+  }
+}
